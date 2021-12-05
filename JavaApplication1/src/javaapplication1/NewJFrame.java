@@ -24,6 +24,9 @@ public class NewJFrame extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/javamdb","root","baccano1");
             System.out.println("Connection Established");
+            String dbop="USE javamdb;";
+            Statement stmt2 = con.createStatement();
+            stmt2.execute(dbop);
         }
         catch (ClassNotFoundException ex) {
             Logger.getLogger(JavaApplication1.class.getName()).log(Level.SEVERE, null, ex);
@@ -168,7 +171,12 @@ public class NewJFrame extends javax.swing.JFrame {
             String table= tablen.getText();
             String label= inputLabel.getText();
             Statement stmt = con.createStatement();
-            String dbop="INSERT INTO "+ table +" ("+ label +") VALUES('"+ name +"');";
+            String dbop="INSERT INTO "+ table +" ("+ label +") VALUES('"+ name.replaceAll(", ", "', '") +"');";
+            //System.out.println(dbop.replaceAll(", ", "', '"));
+                //test insert
+                //album
+                //YES, 01 Funky Kitchen.mp3, 02 スキャット・ビート.mp3, 03 Sexy Lover.mp3
+                //file_name, song1, song2, song3
             stmt.execute(dbop);
             //System.out.println("worked");
             stmt.close();
@@ -179,7 +187,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -190,9 +198,10 @@ public class NewJFrame extends javax.swing.JFrame {
         try {
             String name= input.getText();
             String table= tablen.getText();
-            String label= inputLabel.getText();
+            //String label= inputLabel.getText();
             Statement stmt = con.createStatement();
-            String dbop="delete from song where "+ table +".file_name='"+ name +"';";
+            String dbop="delete from "+ table +" where file_name='"+ name +"';";
+            System.out.println(dbop);
             stmt.execute(dbop);
             //System.out.println("worked");
             stmt.close();
