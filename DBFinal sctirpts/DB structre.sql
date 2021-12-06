@@ -1,5 +1,10 @@
 USE javamdb;
 
+CREATE TABLE javamdb.genre (
+  file_name int NOT NULL,
+  gname VARCHAR(255),
+  PRIMARY KEY (file_name));
+
 CREATE TABLE javamdb.song (
   file_name VARCHAR(255) NOT NULL,
   title VARCHAR(255),
@@ -7,8 +12,9 @@ CREATE TABLE javamdb.song (
   album VARCHAR(255),
   tracknum VARCHAR(255),
   genre VARCHAR(255),
-  PRIMARY KEY (file_name))
-;
+  PRIMARY KEY (file_name),
+  FOREIGN KEY (genre) REFERENCES id3v2list(gname) ON UPDATE NO ACTION ON DELETE NO ACTION
+  );
 
 CREATE TABLE javamdb.album (
   file_name VARCHAR(255) NOT NULL,
