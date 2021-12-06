@@ -23,7 +23,10 @@ public class JavaApplication1 {
             ResultSet rs=stmt.executeQuery("SELECT * FROM javamdb.song");
             while(rs.next()){
                 String name= rs.getString("file_name");
-                System.out.println(name);
+                String title= rs.getString("title");
+                String artist= rs.getString("artist");
+                
+                System.out.println(name+", "+title+", "+artist);
             }
             
             

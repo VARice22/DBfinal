@@ -210,7 +210,56 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try{            
+            String table= tablen.getText();
+            Statement stmt=con.createStatement();
+            if(table.equals("album")){
+                ResultSet rs=stmt.executeQuery("SELECT * FROM javamdb.album");
+                while(rs.next()){
+                    String name= rs.getString("file_name");
+                    String song1= ", "+ rs.getString("song1");
+                    String song2= ", "+ rs.getString("song2");
+                    String song3= ", "+ rs.getString("song3");
+                    String song4= ", "+ rs.getString("song4");
+                    String song5= ", "+ rs.getString("song5");
+                    String song6= ", "+ rs.getString("song6");
+                    String song7= ", "+ rs.getString("song7");
+                    String song8= ", "+ rs.getString("song8");
+                    String song9= ", "+ rs.getString("song9");
+                    String song10= ", "+ rs.getString("song10");
+                    String song11= ", "+ rs.getString("song11");
+                    System.out.println(name+song1+song2+song3+song4+song5+song6+song7+song8+song9+song10+song11);
+                }
+            }
+            else if(table.equals("song")){
+                ResultSet rs=stmt.executeQuery("SELECT * FROM javamdb.song");
+                while(rs.next()){
+                    String name= rs.getString("file_name");
+                    String title= ", "+ rs.getString("title");
+                    String artist=", "+ rs.getString("artist");
+                    String album= ", "+ rs.getString("album");
+                    String track= ", "+ rs.getString("tracknum");
+                    String genre= ", "+ rs.getString("genre");
 
+                    System.out.println(name+title+artist+album+track+genre);
+                }
+            }
+            else if(table.equals("genre")){
+                ResultSet rs=stmt.executeQuery("SELECT * FROM javamdb.genre");
+                while(rs.next()){
+                    String name= rs.getString("file_name");
+                    String title= ", "+ rs.getString("gname");
+
+                    System.out.println(name+title);
+                }
+            }
+            else{System.out.print(table);}
+            
+            
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
