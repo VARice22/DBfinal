@@ -13,9 +13,6 @@ INSERT INTO song (file_name, title, artist, album, tracknum, genre)
 VALUES("Rollin' Girl.mp3", "Rollin' Girl", 'wowaka', 'VOCALOID', '91', 'Rock');
 
 INSERT INTO song (file_name, title, artist, album, tracknum, genre) 
-VALUES("Rollin' Girl.mp3", "Rollin' Girl", 'wowaka', 'VOCALOID', '91', 'Rock');
-
-INSERT INTO song (file_name, title, artist, album, tracknum, genre) 
 VALUES('01 Return to Zero.mp3', 'Return to Zero', 'Fear, and Loathing in Las Vegas', 'New Sunrise', '1', 'Metal');
 INSERT INTO song (file_name, title, artist, album, tracknum, genre) 
 VALUES('02 Before I Fail.mp3', 'Before I Fail', 'Fear, and Loathing in Las Vegas', 'New Sunrise', '2', 'Metal');

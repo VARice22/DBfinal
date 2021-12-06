@@ -1,11 +1,11 @@
 USE javamdb;
 
-CREATE TABLE javamdb.genre (
+CREATE TABLE javamdb.id3v2list (
   file_name int NOT NULL,
-  gname VARCHAR(255),
-  PRIMARY KEY (file_name));
+  gname VARCHAR(255) NOT NULL,
+  PRIMARY KEY (gname));
 
-CREATE TABLE javamdb.song (
+create TABLE javamdb.song (
   file_name VARCHAR(255) NOT NULL,
   title VARCHAR(255),
   artist VARCHAR(255),
